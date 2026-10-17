@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Tech Serviços Elétricos - Inteligência em Soluções Elétricas</title>
+    <meta name="description" content="Engenharia elétrica residencial no Distrito Federal. Tecnologia e segurança em cada instalação.">
+    
+    <!-- Ícone da Aba do Navegador (Favicon) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
+    
+    <!-- ========================================== -->
+    <!-- INTELIGÊNCIA INVISÍVEL: RASTREADOR DO GOOGLE -->
+    <!-- ========================================== -->
+    <!-- (Substitua AW-123456789 pelo seu ID real do Google Ads futuramente) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-123456789"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-123456789');
+    </script>
+    <!-- ========================================== -->
+
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-accent: #FF5E00;
+            --text-light: #E0E0E0;
+            --text-muted: #888;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
+
+        body { background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden; }
+
+        .bg-glow {
+            position: fixed; width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(255, 94, 0, 0.15) 0%, rgba(0,0,0,0) 70%);
+            top: -200px; left: -200px; z-index: -1; filter: blur(50px);
+        }
+
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 20px; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(90deg, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero h1 span { background: linear-gradient(90deg, var(--neon-accent), #FF9900); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; color: var(--text-muted); }
+
+        .smart-panel {
+            background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 30px; 
+            border-radius: 20px; max-width: 550px; width: 100%; backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4); text-align: left;
+        }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 1.1rem; font-weight: 500; margin-bottom: 10px; color: #fff; }
+        .form-control {
+            width: 100%; padding: 14px; background: rgba(0,0,0,0.5); color: #fff;
+            border: 1px solid var(--glass-border); border-radius: 10px; font-size: 1rem; outline: none; transition: 0.3s;
+        }
+        .form-control:focus { border-color: var(--neon-accent); }
+        
+        .btn-neon {
+            width: 100%; background: transparent; color: #fff; padding: 18px; font-size: 1.2rem; font-weight: 800;
+            border-radius: 10px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+            border: 1px solid var(--neon-accent); box-shadow: 0 0 20px rgba(255, 94, 0, 0.2), inset 0 0 10px rgba(255, 94, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .btn-neon:hover { background: var(--neon-accent); box-shadow: 0 0 30px rgba(255, 94, 0, 0.5); transform: translateY(-2px); }
+
+        .authority-section { padding: 40px 20px; text-align: center; background: rgba(0,0,0,0.3); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+        .authority-badges { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
+        .badge { background: var(--glass-bg); padding: 15px 25px; border-radius: 50px; border: 1px solid var(--glass-border); font-weight: 800; color: #fff; display: flex; align-items: center; gap: 10px; }
+        .badge i { color: var(--neon-accent); font-style: normal; }
+
+        .section-container { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .section-container h2 { font-size: 2.5rem; margin-bottom: 40px; color: #fff; }
+        
+        .video-container { width: 100%; max-width: 800px; margin: 0 auto 40px; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); }
+        .video-container video { width: 100%; display: block; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; padding: 40px 30px; backdrop-filter: blur(10px); text-align: left; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--neon-accent); }
+        .card h3 { font-size: 1.5rem; color: #fff; margin-bottom: 15px; }
+
+        .testimonials { background: linear-gradient(180deg, transparent, rgba(255, 94, 0, 0.05)); }
+        .testimonial-card { background: var(--glass-bg); padding: 30px; border-radius: 15px; border-left: 3px solid var(--neon-accent); text-align: left; font-style: italic; color: #ddd; margin-bottom: 20px; }
+        .client-name { display: block; margin-top: 15px; font-weight: 800; font-style: normal; color: #fff; }
+
+        .faq-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 800px; margin: 0 auto; text-align: left; }
+        .faq-item { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 15px; padding: 25px; }
+        .faq-item h3 { color: var(--neon-accent); font-size: 1.3rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .faq-item p { color: var(--text-light); line-height: 1.6; }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <section class="hero">
+        <h1>Capital Tech Serviços Elétricos <span>Soluções Elétricas</span></h1>
+        <p>Diagnóstico preciso, segurança máxima e equipe especializada no DF. Selecione o que você precisa abaixo para enviarmos uma estimativa imediata.</p>
+        
+        <div class="smart-panel">
+            <div class="form-group">
+                <label>1. O que está acontecendo?</label>
+                <select id="problema" class="form-control">
+                    <option value="Orçamento geral a definir">Selecione uma opção...</option>
+                    <option value="Chuveiro parou / Resistência queimada">🚿 Chuveiro parou / Não esquenta</option>
+                    <option value="Emergência: Curto-circuito / Fiação derretendo">🔥 Curto-circuito / Cheiro de queimado</option>
+                    <option value="Instalação de tomadas / ventiladores / luminárias">💡 Instalação de Tomadas ou Iluminação</option>
+                    <option value="Revisão / Organização no Quadro de Disjuntores">⚡ Problema no Quadro de Disjuntores (QDC)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>2. Em qual região do DF você está?</label>
+                <input type="text" id="regiao" class="form-control" placeholder="Ex: Ceilândia, Taguatinga, Águas Claras...">
+            </div>
+
+            <div class="form-group">
+                <label>3. Nível de Urgência</label>
+                <select id="urgencia" class="form-control">
+                    <option value="Pode ser agendado com calma">Pode ser agendado (Sem pressa)</option>
+                    <option value="Gostaria de resolver hoje ou amanhã">Quero resolver o mais rápido possível</option>
+                    <option value="EMERGÊNCIA! Desliguei a energia por segurança">Emergência! Tem risco de incêndio/curto</option>
+                </select>
+            </div>
+
+            <!-- O clique dispara a métrica de venda antes de abrir o WhatsApp -->
+            <button onclick="dispararConversaoGoogle()" class="btn-neon">Solicitar Orçamento Exato</button>
+        </div>
+    </section>
+
+    <section class="authority-section">
+        <div class="authority-badges">
+            <div class="badge"><i>🎓</i> Formação Técnica Especializada (SENAI)</div>
+            <div class="badge"><i>🛡️</i> Ferramentas Isoladas 1000V</div>
+            <div class="badge"><i>⚡</i> Multímetros de Alta Precisão</div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2>Operação Transparente</h2>
+        <div class="video-container">
+            <video controls poster="https://via.placeholder.com/800x450/111/333?text=Aperte+o+Play">
+                <source src="seu-video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>⚡ Diagnóstico Avançado</h3>
+                <p>Identificação de fugas de corrente e quedas de tensão antes que virem um curto-circuito na sua casa.</p>
+            </div>
+            <div class="card">
+                <h3>🛠️ Segurança Total</h3>
+                <p>Uso de conectores apropriados, dimensionamento de cabos e proteção contra surtos (DPS) e choques elétricos (DR).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos Focados na Marca (Anônimos) -->
+    <section class="section-container testimonials">
+        <h2>O que dizem nossos clientes</h2>
+        <div class="grid" style="max-width: 1000px; margin: 0 auto;">
+            <div class="testimonial-card">
+                "O técnico resolveu um problema no quadro de energia que outros profissionais haviam condenado. Serviço rápido, limpo e direto ao ponto."
+                <span class="client-name">- Carlos T., Ceilândia</span>
+            </div>
+            <div class="testimonial-card">
+                "A empresa mandou o orçamento direto pelo WhatsApp de forma super clara e a equipe resolveu o problema do meu chuveiro no mesmo dia. Recomendo muito!"
+                <span class="client-name">- Juliana M., Taguatinga</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container" style="padding-top: 20px;">
+        <h2>Transparência e Garantia</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h3>💵 Vocês cobram taxa de visita?</h3>
+                <p>Sim, há uma taxa de visita técnica para cobrir o deslocamento e o tempo de diagnóstico com equipamentos de precisão. <strong>Porém, se o orçamento for aprovado na hora, o valor da visita é 100% abatido do serviço final.</strong> A visita sai de graça se fecharmos o serviço.</p>
+            </div>
+            <div class="faq-item">
+                <h3>🛡️ O serviço tem garantia?</h3>
+                <p>Com certeza. A prioridade é a segurança da sua residência. Todo serviço executado pela nossa equipe possui <strong>Garantia Técnica sobre a mão de obra</strong>. Nosso trabalho segue normas rigorosas, e se houver qualquer problema na execução, resolvemos sem custo adicional.</p>
+            </div>
+            <div class="faq-item">
+                <h3>💳 Quais as formas de pagamento?</h3>
+                <p>Aceitamos pagamentos facilitados via <strong>PIX, Cartão de Crédito e Cartão de Débito</strong> após a conclusão e teste do serviço.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOTOR DE RASTREAMENTO E WHATSAPP -->
+    <script>
+        function dispararConversaoGoogle() {
+            // 1. Coleta os dados preenchidos
+            const problema = document.getElementById("problema").value;
+            const regiao = document.getElementById("regiao").value || "Não informada";
+            const urgencia = document.getElementById("urgencia").value;
+            
+            // 2. Monta o link do WhatsApp (COLOQUE SEU NÚMERO AQUI)
+            const numero = "5561900000000"; 
+            const mensagem = `Olá, equipe da Capital Tech Serviços Elétricos! Vim pelo site e preciso de atendimento técnico.\n\n⚡ *Situação:* ${problema}\n📍 *Região:* ${regiao}\n🚨 *Urgência:* ${urgencia}\n\nPode me passar uma estimativa de valor ou agendar a visita?`;
+            const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+            // 3. Avisa ao Google Ads que uma venda/orçamento aconteceu (Inteligência Invisível)
+            gtag('event', 'conversion', {
+                'send_to': 'AW-123456789/SUA_CHAVE_DE_CONVERSAO', // Atualizaremos isso quando criarmos a conta no Ads
+                'event_callback': function() {
+                    // 4. Somente após o Google confirmar, abre o WhatsApp
+                    window.open(url, '_blank');
+                }
+            });
+
+            // Fallback de segurança (caso o bloqueador de anúncios bloqueie o Google, abre o WhatsApp mesmo assim)
+            setTimeout(function() { window.open(url, '_blank'); }, 1000);
+        }
+    </script>
+
+</body>
+</html>
