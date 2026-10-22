@@ -8,6 +8,16 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
     
+    <!-- Google tag (gtag.js) - CAPITAL TECH OFICIAL -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-804006047"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-804006047');
+    </script>
+
     <style>
         :root {
             --bg-dark: #050505;
@@ -56,7 +66,6 @@
         
         .step h3 { margin-bottom: 25px; font-size: 1.3rem; }
         
-        /* GRADE INTELIGENTE DE BOTÕES */
         .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .option-btn { background: #111; color: #fff; padding: 14px; border: 1px solid #333; border-radius: 8px; font-size: 0.95rem; cursor: pointer; transition: 0.3s; text-align: left; display: flex; align-items: center; gap: 8px; }
         .option-btn:hover { border-color: var(--neon-accent); background: rgba(255, 94, 0, 0.1); transform: translateY(-2px); }
@@ -90,7 +99,7 @@
         @media (max-width: 600px) { 
             .hero h1 { font-size: 2.2rem; } 
             .nav-links { display: none; }
-            .options-grid { grid-template-columns: 1fr; } /* No celular vira lista única */
+            .options-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -113,7 +122,6 @@
         <p>Diagnóstico preciso, execução cirúrgica. Descubra sua estimativa em segundos.</p>
         
         <div class="smart-panel">
-            <!-- PASSO 1: MAPEAMENTO COMPLETO DE PROBLEMAS -->
             <div class="step active" id="step1">
                 <h3>Identifique o seu problema:</h3>
                 <div class="options-grid">
@@ -134,7 +142,6 @@
                 <p>Processando parâmetros da rede...</p>
             </div>
 
-            <!-- PASSO 2 -->
             <div class="step" id="step2">
                 <h3>Análise concluída.</h3>
                 <div class="estimate-box">
@@ -148,7 +155,6 @@
         </div>
     </section>
 
-    <!-- COMO FUNCIONA -->
     <section class="section" id="metodo">
         <h2 class="section-title">O Método <span>Capital Tech</span></h2>
         <div class="grid-3">
@@ -170,7 +176,6 @@
         </div>
     </section>
 
-    <!-- AVALIAÇÕES -->
     <section class="section" id="depoimentos" style="background: #050505;">
         <h2 class="section-title">Autoridade <span>no DF</span></h2>
         <div class="grid-3">
@@ -226,6 +231,16 @@
             const mensagem = `⚡ *Dossiê Capital Tech* ⚡\n\nOlá Habner! Fiz o diagnóstico no site e preciso de atendimento:\n\n🔧 *Problema:* ${dadosCliente.problema}\n📍 *Região:* ${dadosCliente.regiao}\n💰 *Estimativa vista:* ${dadosCliente.estimativa}\n\nPodemos agendar?`;
             
             const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+            
+            // DISPARO DA CONVERSÃO GOOGLE ADS OFICIAL
+            if(typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-804006047/t5d7CL6nmqYdEJ_RsP8C',
+                    'value': 1.0,
+                    'currency': 'BRL'
+                });
+            }
+            
             window.open(url, '_blank');
         }
     </script>
