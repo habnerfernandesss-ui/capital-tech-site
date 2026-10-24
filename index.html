@@ -33,9 +33,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
         body { background: var(--bg); color: var(--text-main); overflow-x: hidden; }
 
-        /* HEADER E MENU (NOVO LAYOUT) */
+        /* HEADER E MENU */
         header {
-            position: fixed; top: 0; width: 100%; background: rgba(3,3,5,0.95); backdrop-filter: blur(15px);
+            position: fixed; top: 0; left: 0; width: 100%; background: rgba(3,3,5,0.95); backdrop-filter: blur(15px);
             padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; border-bottom: 1px solid var(--border-glass);
         }
@@ -46,7 +46,7 @@
         .nav-links a { color: var(--text-main); text-decoration: none; font-weight: 400; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--neon); }
         
-        /* BOTÃO PLANTÃO (AGORA NO CENTRO) */
+        /* BOTÃO PLANTÃO (CENTRO) */
         .live-status { 
             display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.85rem; font-weight: 700; 
             letter-spacing: 1px; color: #00FF66; background: rgba(0,255,102,0.1); 
@@ -135,19 +135,35 @@
         .footer-bottom { margin-top: 50px; padding-top: 20px; border-top: 1px solid #222; color: #555; font-size: 0.8rem; }
 
         /* =======================================
-           AJUSTES MILIMÉTRICOS PARA CELULAR
+           ALINHAMENTO ABSOLUTO PARA CELULAR
            ======================================= */
         @media (max-width: 768px) {
-            /* O cabeçalho agora fica empilhado: Logo em cima, Menu em baixo */
-            header { flex-direction: column; gap: 10px; padding: 15px; } 
-            .logo-tech { font-size: 1.6rem; }
+            header { 
+                flex-direction: column !important; 
+                justify-content: center !important;
+                align-items: center !important;
+                padding: 15px 0 !important; 
+                left: 0 !important;
+            } 
+            .logo-tech { 
+                display: block !important;
+                text-align: center !important;
+                margin: 0 auto 12px auto !important;
+                width: auto !important;
+            }
+            .nav-links { 
+                display: flex !important; 
+                width: 100% !important; 
+                justify-content: center !important; 
+                align-items: center !important;
+                gap: 18px !important; 
+                margin: 0 !important;
+                padding: 0 !important;
+            }
             
-            /* O menu volta a aparecer, perfeitamente alinhado */
-            .nav-links { display: flex; width: 100%; justify-content: center; gap: 20px; }
-            .nav-links a { font-size: 0.9rem; }
-            
-            /* Ajustes gerais de espaçamento */
             .hero { padding-top: 160px; } 
+            .live-status { margin-bottom: 25px; } 
+            
             .hero h1 { font-size: 2.3rem; }
             .auth-grid { grid-template-columns: 1fr; }
             .grid-options { grid-template-columns: 1fr; }
@@ -159,10 +175,9 @@
 
     <div class="animated-bg"></div>
     
-    <!-- HEADER REORGANIZADO -->
+    <!-- HEADER BLINDADO -->
     <header>
         <a href="#inicio" class="logo-tech">CAPITAL<span>TECH</span></a>
-        <!-- Menu restaurado para o telemóvel -->
         <nav class="nav-links">
             <a href="#inicio">Início</a>
             <a href="#servicos">Especialidades</a>
@@ -174,7 +189,6 @@
     <section class="hero" id="inicio">
         <div class="glow-orb"></div>
         
-        <!-- BOTÃO PLANTÃO AGORA FICA AQUI, EM GRANDE DESTAQUE -->
         <div class="live-status"><div class="dot"></div> PLANTÃO ATIVO NO DF</div>
         
         <h1>Engenharia <span>Elétrica</span> DF</h1>
@@ -284,79 +298,4 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h4 style="font-weight:900; font-size:1.5rem;">CAPITAL<span style="color:var(--neon);">TECH</span></h4>
-                <p>Inteligência, precisão e segurança em instalações elétricas para todo o Distrito Federal.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Atendimento</h4>
-                <p>📍 Atuação em todo o DF e Entorno</p>
-                <p>🕒 Plantão para Emergências</p>
-                <p>💳 Aceitamos Cartões e Pix</p>
-            </div>
-            <div class="footer-col">
-                <h4>Contatos Seguros</h4>
-                <p>📞 (61) 98629-4465</p>
-                <p>✉️ contato@capitaltech.com.br</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 Capital Tech Engenharia Elétrica. Todos os direitos reservados. 
-        </div>
-    </footer>
-
-    <!-- SCRIPT DE INTELIGÊNCIA -->
-    <script>
-        let dadosAgendamento = { problema: "", estimativa: "", regiao: "" };
-
-        function iniciarAnalise(problema, estimativa) {
-            dadosAgendamento.problema = problema;
-            dadosAgendamento.estimativa = estimativa;
-            
-            document.getElementById('step-1').classList.remove('active');
-            const processing = document.getElementById('step-processing');
-            processing.style.display = 'flex';
-
-            const fill = document.getElementById('p-fill');
-            const terminal = document.getElementById('terminal-text');
-            
-            let progress = 0;
-            const messages = [
-                "Verificando histórico de falhas da região...",
-                "Calculando dimensionamento de carga...",
-                "Estruturando dossiê técnico..."
-            ];
-
-            const interval = setInterval(() => {
-                progress += 20;
-                fill.style.width = progress + '%';
-                
-                if (progress === 40) terminal.innerText = messages[1];
-                if (progress === 80) terminal.innerText = messages[2];
-
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        processing.style.display = 'none';
-                        document.getElementById('res-problema').innerText = dadosAgendamento.problema;
-                        document.getElementById('res-valor').innerText = dadosAgendamento.estimativa;
-                        document.getElementById('step-3').classList.add('active');
-                    }, 400);
-                }
-            }, 300);
-        }
-
-        function acionarWhatsApp() {
-            dadosAgendamento.regiao = document.getElementById('input-regiao').value || "Não informada";
-            
-            const numero = "5561986294465"; 
-            const msg = `⚡ *DOSSIÊ CAPITAL TECH* ⚡\n\nOlá Habner! Solicito atendimento técnico.\n\n🔧 *Diagnóstico:* ${dadosAgendamento.problema}\n📍 *Localização:* ${dadosAgendamento.regiao}\n💰 *Estimativa:* ${dadosAgendamento.estimativa}\n\nPodemos confirmar?`;
-            
-            if(typeof gtag === 'function') {
-                gtag('event', 'conversion', { 'send_to': 'AW-804006047/t5d7CL6nmqYdEJ_RsP8C', 'value': 1.0, 'currency': 'BRL' });
-            }
-            
-            window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-    </script>
-
-</body>
-</html>
+                <p>Inteligência, precisão e segurança em instalações elétricas para todo
