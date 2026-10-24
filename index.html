@@ -137,4 +137,247 @@
 
         /* FOOTER */
         footer { background: #010102; padding: 50px 5%; border-top: 1px solid #111; text-align: center; width: 100%; }
-        .footer-grid { display: grid; grid-template-
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; text-align: left; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.2rem; }
+        .footer-col p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; line-height: 1.5; }
+        .footer-bottom { margin-top: 50px; padding-top: 20px; border-top: 1px solid #222; color: #555; font-size: 0.8rem; }
+
+        /* =======================================
+           TRAVA ABSOLUTA PARA CELULAR
+           ======================================= */
+        @media (max-width: 768px) {
+            header { 
+                flex-direction: column !important; 
+                justify-content: center !important;
+                align-items: center !important;
+                padding: 15px 0 !important; 
+                width: 100% !important;
+            } 
+            .logo-tech { 
+                display: block !important;
+                text-align: center !important;
+                width: 100% !important;
+                margin: 0 0 10px 0 !important;
+                font-size: 1.7rem !important;
+            }
+            .nav-links { 
+                display: flex !important; 
+                flex-wrap: wrap !important; /* Quebra linha se o celular for muito estreito */
+                justify-content: center !important; 
+                align-items: center !important;
+                width: 100% !important;
+                gap: 15px !important; 
+                margin: 0 !important;
+            }
+            
+            .hero { padding-top: 160px; } 
+            .hero h1 { font-size: 2.3rem; }
+            .auth-grid { grid-template-columns: 1fr; }
+            .grid-options { grid-template-columns: 1fr; }
+            .cyber-panel { padding: 25px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animated-bg"></div>
+    
+    <!-- HEADER BLINDADO -->
+    <header>
+        <a href="#inicio" class="logo-tech">CAPITAL<span>TECH</span></a>
+        <nav class="nav-links">
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Especialidades</a>
+            <a href="#autoridade">Garantia</a>
+        </nav>
+    </header>
+
+    <!-- HERO & DIAGNÓSTICO -->
+    <section class="hero" id="inicio">
+        <div class="glow-orb"></div>
+        
+        <div class="live-status"><div class="dot"></div> PLANTÃO ATIVO NO DF</div>
+        
+        <h1>Engenharia <span>Elétrica</span> DF</h1>
+        <p class="subtitle">Diagnóstico técnico em tempo real. Identifique o problema abaixo e acione o engenheiro responsável.</p>
+
+        <div class="cyber-panel">
+            <div class="step active" id="step-1">
+                <div class="panel-title"><i>⚡</i> Painel de Triagem Técnica</div>
+                <div class="grid-options">
+                    <button class="btn-option" onclick="iniciarAnalise('Chuveiro não esquenta / Resistência', 'A partir de R$ 80')">🚿 Chuveiro / Resistência</button>
+                    <button class="btn-option" style="border-color: rgba(255,0,0,0.4);" onclick="iniciarAnalise('Curto-circuito / Cheiro de Queimado', 'Urgência - Requer Visita Imediata')">🔥 Curto / Queimado</button>
+                    <button class="btn-option" onclick="iniciarAnalise('Disjuntor Desarmando', 'A partir de R$ 150')">⚡ Disjuntor Desarmando</button>
+                    <button class="btn-option" style="border-color: rgba(255,0,0,0.4);" onclick="iniciarAnalise('Apagão Parcial (Fases caindo)', 'Urgência - Avaliação Técnica')">🌑 Apagão Parcial</button>
+                    <button class="btn-option" onclick="iniciarAnalise('Instalação Ar/Forno/Equipamentos', 'A partir de R$ 150')">❄️ Ar / Forno / Cooktop</button>
+                    <button class="btn-option" onclick="iniciarAnalise('Instalação Tomadas e Iluminação', 'A partir de R$ 70 por ponto')">💡 Tomadas / Iluminação</button>
+                    <button class="btn-option btn-full" onclick="iniciarAnalise('Falha não identificada', 'Análise de Rede Necessária')">❓ Outro problema / Não sei explicar</button>
+                </div>
+            </div>
+
+            <div class="ia-processing" id="step-processing">
+                <div class="panel-title"><i>⚙️</i> Processando Parâmetros...</div>
+                <div class="progress-bar"><div class="progress-fill" id="p-fill"></div></div>
+                <div class="terminal-text" id="terminal-text">Iniciando análise...</div>
+            </div>
+
+            <div class="step" id="step-3">
+                <div class="panel-title"><i>✅</i> Relatório Preliminar</div>
+                <div class="result-box">
+                    <span style="color:#aaa; font-size:0.9rem;">Ocorrência Detectada:</span>
+                    <h3 id="res-problema" style="color:#fff; margin:5px 0 15px 0;">-</h3>
+                    <span style="color:#aaa; font-size:0.9rem;">Estimativa Base (Mão de Obra):</span>
+                    <h2 id="res-valor">-</h2>
+                </div>
+                <input type="text" id="input-regiao" class="input-neon" placeholder="Sua Região no DF (Ex: Ceilândia, Taguatinga)">
+                <button class="btn-action" onclick="acionarWhatsApp()">Acionar Habner Agora</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSSOS SERVIÇOS -->
+    <section class="bg-alt" id="servicos">
+        <h2 class="section-title">Especialidades <span>Técnicas</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Manutenção Preventiva e Corretiva</h3>
+                <p>Identificação de fugas de energia, balanceamento de fases e resolução definitiva para disjuntores que desarmam constantemente.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎛️</div>
+                <h3>Montagem de Quadros (QDC)</h3>
+                <p>Projetos de modernização de quadros de distribuição, adequação às normas atuais de segurança e instalação de DR/DPS.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔌</div>
+                <h3>Infraestrutura Residencial</h3>
+                <p>Troca completa de fiação antiga, dimensionamento de cabos para equipamentos pesados (ar-condicionado, fornos) e projetos de iluminação.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTORIDADE E AUTENTICAÇÃO -->
+    <section id="autoridade">
+        <div class="auth-grid">
+            <div class="auth-text">
+                <h2>Rigor Técnico e <span>Segurança</span></h2>
+                <p>Eletricidade não aceita amadorismo. A Capital Tech atua sob os mais rigorosos padrões de segurança, garantindo que a infraestrutura da sua família ou do seu negócio opere sem riscos de incêndio ou curtos-circuitos.</p>
+                
+                <div class="auth-badges">
+                    <div class="badge-item">
+                        <i>📋</i>
+                        <div>
+                            <h4>Padrão de Qualidade SENAI</h4>
+                            <p>Formação técnica chancelada pela maior instituição de tecnologia do país.</p>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <i>🔧</i>
+                        <div>
+                            <h4>Instrumentação de Alta Precisão</h4>
+                            <p>Diagnóstico feito com multímetros calibrados e ferramentas isoladas 1000V.</p>
+                        </div>
+                    </div>
+                    <div class="badge-item">
+                        <i>🛡️</i>
+                        <div>
+                            <h4>Conformidade NR-10</h4>
+                            <p>Todos os serviços executados respeitando as normas regulamentadoras de segurança.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="auth-image">
+                <div class="cert-box">
+                    <div class="shield-icon">🛡️</div>
+                    <h3>Selo de Autenticação</h3>
+                    <p>A Capital Tech oferece <strong>90 dias de garantia incondicional</strong> sobre toda a mão de obra executada.</p>
+                    <hr style="border:0; border-top:1px solid #333; margin: 20px 0;">
+                    <p style="color:var(--neon); font-weight:bold; font-size:1.1rem;">Responsável Técnico: Habner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 style="font-weight:900; font-size:1.5rem;">CAPITAL<span style="color:var(--neon);">TECH</span></h4>
+                <p>Inteligência, precisão e segurança em instalações elétricas para todo o Distrito Federal.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Atendimento</h4>
+                <p>📍 Atuação em todo o DF e Entorno</p>
+                <p>🕒 Plantão para Emergências</p>
+                <p>💳 Aceitamos Cartões e Pix</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contatos Seguros</h4>
+                <p>📞 (61) 98629-4465</p>
+                <p>✉️ contato@capitaltech.com.br</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Capital Tech Engenharia Elétrica. Todos os direitos reservados. 
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTELIGÊNCIA -->
+    <script>
+        let dadosAgendamento = { problema: "", estimativa: "", regiao: "" };
+
+        function iniciarAnalise(problema, estimativa) {
+            dadosAgendamento.problema = problema;
+            dadosAgendamento.estimativa = estimativa;
+            
+            document.getElementById('step-1').classList.remove('active');
+            const processing = document.getElementById('step-processing');
+            processing.style.display = 'flex';
+
+            const fill = document.getElementById('p-fill');
+            const terminal = document.getElementById('terminal-text');
+            
+            let progress = 0;
+            const messages = [
+                "Verificando histórico de falhas da região...",
+                "Calculando dimensionamento de carga...",
+                "Estruturando dossiê técnico..."
+            ];
+
+            const interval = setInterval(() => {
+                progress += 20;
+                fill.style.width = progress + '%';
+                
+                if (progress === 40) terminal.innerText = messages[1];
+                if (progress === 80) terminal.innerText = messages[2];
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        processing.style.display = 'none';
+                        document.getElementById('res-problema').innerText = dadosAgendamento.problema;
+                        document.getElementById('res-valor').innerText = dadosAgendamento.estimativa;
+                        document.getElementById('step-3').classList.add('active');
+                    }, 400);
+                }
+            }, 300);
+        }
+
+        function acionarWhatsApp() {
+            dadosAgendamento.regiao = document.getElementById('input-regiao').value || "Não informada";
+            
+            const numero = "5561986294465"; 
+            const msg = `⚡ *DOSSIÊ CAPITAL TECH* ⚡\n\nOlá Habner! Solicito atendimento técnico.\n\n🔧 *Diagnóstico:* ${dadosAgendamento.problema}\n📍 *Localização:* ${dadosAgendamento.regiao}\n💰 *Estimativa:* ${dadosAgendamento.estimativa}\n\nPodemos confirmar?`;
+            
+            if(typeof gtag === 'function') {
+                gtag('event', 'conversion', { 'send_to': 'AW-804006047/t5d7CL6nmqYdEJ_RsP8C', 'value': 1.0, 'currency': 'BRL' });
+            }
+            
+            window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+
+</body>
+</html>
