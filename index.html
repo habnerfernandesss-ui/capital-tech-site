@@ -46,7 +46,12 @@
         .nav-links a { color: var(--text-main); text-decoration: none; font-weight: 400; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--neon); }
         
-        .live-status { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; color: #00FF66; background: rgba(0,255,102,0.1); padding: 5px 12px; border-radius: 50px; border: 1px solid rgba(0,255,102,0.2); }
+        .live-status { 
+            display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 700; 
+            letter-spacing: 1px; color: #00FF66; background: rgba(0,255,102,0.1); 
+            padding: 5px 12px; border-radius: 50px; border: 1px solid rgba(0,255,102,0.2); 
+            white-space: nowrap; /* Impede que o texto quebre ou vaze */
+        }
         .dot { width: 8px; height: 8px; background: #00FF66; border-radius: 50%; box-shadow: 0 0 10px #00FF66; animation: blink 1.5s infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
@@ -128,11 +133,22 @@
         .footer-col p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; line-height: 1.5; }
         .footer-bottom { margin-top: 50px; padding-top: 20px; border-top: 1px solid #222; color: #555; font-size: 0.8rem; }
 
+        /* =======================================
+           AJUSTES MILIMÉTRICOS PARA CELULAR
+           ======================================= */
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Oculta menu no celular para focar no status */
+            header { padding: 12px 15px; } /* Reduz as margens laterais no celular */
+            .logo-tech { font-size: 1.15rem; } /* Diminui suavemente a logo */
+            .nav-links { display: none; }
+            .live-status { 
+                font-size: 0.65rem; /* Fonte menor para encaixar perfeitamente */
+                padding: 4px 10px; 
+                gap: 5px;
+            }
             .auth-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.2rem; }
             .grid-options { grid-template-columns: 1fr; }
+            .cyber-panel { padding: 25px 15px; }
         }
     </style>
 </head>
