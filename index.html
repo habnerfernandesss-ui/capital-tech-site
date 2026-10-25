@@ -30,7 +30,7 @@
             --border-glass: rgba(255, 255, 255, 0.05);
         }
 
-        /* TRAVA DE TELA (Evita o balanço lateral) */
+        /* TRAVA DE TELA */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
         html, body { 
             background: var(--bg); 
@@ -105,8 +105,11 @@
         .result-box { background: rgba(0,0,0,0.5); border-left: 3px solid var(--neon); padding: 20px; border-radius: 8px; text-align: left; margin-bottom: 25px; }
         .result-box h2 { color: var(--neon); font-size: 1.5rem; margin-top: 5px; }
         
-        input.input-neon { width: 100%; padding: 16px; background: rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 8px; margin-bottom: 20px; outline: none; font-size: 1rem; }
-        input.input-neon:focus { border-color: var(--neon); }
+        /* SELECT INTELIGENTE */
+        select.input-neon { width: 100%; padding: 16px; background: rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 8px; margin-bottom: 20px; outline: none; font-size: 1rem; cursor: pointer; appearance: none; }
+        select.input-neon:focus { border-color: var(--neon); }
+        select.input-neon option { background: #111; color: #fff; }
+        
         .btn-action { width: 100%; background: var(--neon); color: #000; font-weight: 900; font-size: 1.2rem; padding: 18px; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s; box-shadow: 0 0 20px rgba(255, 94, 0, 0.4); }
         .btn-action:hover { background: #fff; box-shadow: 0 0 30px #fff; transform: translateY(-2px); }
 
@@ -118,6 +121,15 @@
         .service-icon { font-size: 2.5rem; margin-bottom: 15px; display: inline-block; padding: 15px; background: rgba(255,94,0,0.1); border-radius: 12px; color: var(--neon); }
         .service-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: #fff; }
         .service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+        /* SEÇÃO DEPOIMENTOS */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1100px; width: 100%; }
+        .testimonial-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); padding: 35px; border-radius: 16px; text-align: left; backdrop-filter: blur(10px); }
+        .stars { color: #FFB800; font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 2px; }
+        .testimonial-card p { color: #ddd; font-weight: 300; font-style: italic; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        .client-info { border-top: 1px solid var(--border-glass); padding-top: 15px; }
+        .client-name { color: #fff; font-weight: 700; font-size: 0.95rem; }
+        .client-role { color: var(--neon); font-weight: 400; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
         /* SEÇÃO AUTORIDADE E AUTENTICAÇÃO */
         .auth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; width: 100%; align-items: center; }
@@ -142,34 +154,11 @@
         .footer-col p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; line-height: 1.5; }
         .footer-bottom { margin-top: 50px; padding-top: 20px; border-top: 1px solid #222; color: #555; font-size: 0.8rem; }
 
-        /* =======================================
-           TRAVA ABSOLUTA PARA CELULAR
-           ======================================= */
+        /* TRAVA ABSOLUTA PARA CELULAR */
         @media (max-width: 768px) {
-            header { 
-                flex-direction: column !important; 
-                justify-content: center !important;
-                align-items: center !important;
-                padding: 15px 0 !important; 
-                width: 100% !important;
-            } 
-            .logo-tech { 
-                display: block !important;
-                text-align: center !important;
-                width: 100% !important;
-                margin: 0 0 10px 0 !important;
-                font-size: 1.7rem !important;
-            }
-            .nav-links { 
-                display: flex !important; 
-                flex-wrap: wrap !important; /* Quebra linha se o celular for muito estreito */
-                justify-content: center !important; 
-                align-items: center !important;
-                width: 100% !important;
-                gap: 15px !important; 
-                margin: 0 !important;
-            }
-            
+            header { flex-direction: column !important; justify-content: center !important; align-items: center !important; padding: 15px 0 !important; width: 100% !important; } 
+            .logo-tech { display: block !important; text-align: center !important; width: 100% !important; margin: 0 0 10px 0 !important; font-size: 1.7rem !important; }
+            .nav-links { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; width: 100% !important; gap: 15px !important; margin: 0 !important; }
             .hero { padding-top: 160px; } 
             .hero h1 { font-size: 2.3rem; }
             .auth-grid { grid-template-columns: 1fr; }
@@ -182,24 +171,23 @@
 
     <div class="animated-bg"></div>
     
-    <!-- HEADER BLINDADO -->
     <header>
         <a href="#inicio" class="logo-tech">CAPITAL<span>TECH</span></a>
         <nav class="nav-links">
             <a href="#inicio">Início</a>
             <a href="#servicos">Especialidades</a>
+            <a href="#depoimentos">Avaliações</a>
             <a href="#autoridade">Garantia</a>
         </nav>
     </header>
 
-    <!-- HERO & DIAGNÓSTICO -->
     <section class="hero" id="inicio">
         <div class="glow-orb"></div>
         
         <div class="live-status"><div class="dot"></div> PLANTÃO ATIVO NO DF</div>
         
         <h1>Engenharia <span>Elétrica</span> DF</h1>
-        <p class="subtitle">Diagnóstico técnico em tempo real. Identifique o problema abaixo e acione o engenheiro responsável.</p>
+        <p class="subtitle">Diagnóstico técnico em tempo real. Identifique o problema abaixo e acione a central de engenharia.</p>
 
         <div class="cyber-panel">
             <div class="step active" id="step-1">
@@ -229,8 +217,18 @@
                     <span style="color:#aaa; font-size:0.9rem;">Estimativa Base (Mão de Obra):</span>
                     <h2 id="res-valor">-</h2>
                 </div>
-                <input type="text" id="input-regiao" class="input-neon" placeholder="Sua Região no DF (Ex: Ceilândia, Taguatinga)">
-                <button class="btn-action" onclick="acionarWhatsApp()">Acionar Habner Agora</button>
+                <!-- Menu Dropdown Inteligente de Fricção Zero -->
+                <select id="input-regiao" class="input-neon">
+                    <option value="" disabled selected>Selecione sua Região no DF...</option>
+                    <option value="Ceilândia">Ceilândia</option>
+                    <option value="Taguatinga">Taguatinga</option>
+                    <option value="Águas Claras">Águas Claras</option>
+                    <option value="Vicente Pires">Vicente Pires</option>
+                    <option value="Samambaia">Samambaia</option>
+                    <option value="Guará">Guará</option>
+                    <option value="Outra Região">Outra Região do DF</option>
+                </select>
+                <button class="btn-action" onclick="acionarWhatsApp()">Acionar Capital Tech</button>
             </div>
         </div>
     </section>
@@ -257,8 +255,41 @@
         </div>
     </section>
 
+    <!-- DEPOIMENTOS DE ALTO PADRÃO -->
+    <section id="depoimentos">
+        <h2 class="section-title">Avaliações <span>Técnicas</span></h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Tivemos um apagão parcial na loja durante a madrugada e o plantão da Capital Tech salvou o nosso fim de semana. Resolução rápida, técnica e sem enrolação."</p>
+                <div class="client-info">
+                    <div class="client-name">Marcos V.</div>
+                    <div class="client-role">Comerciante em Taguatinga</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"O quadro de energia estava em curto e com cheiro a queimado. A equipe da Capital Tech chegou em menos de 40 minutos com ferramentas de ponta. Profissionalismo raro no DF."</p>
+                <div class="client-info">
+                    <div class="client-name">Juliana R.</div>
+                    <div class="client-role">Moradora em Águas Claras</div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Finalmente uma empresa de engenharia elétrica que trabalha com transparência. O diagnóstico foi exato e a rede do condomínio voltou a operar com segurança máxima."</p>
+                <div class="client-info">
+                    <div class="client-name">Roberto F.</div>
+                    <div class="client-role">Síndico em Ceilândia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- AUTORIDADE E AUTENTICAÇÃO -->
-    <section id="autoridade">
+    <section class="bg-alt" id="autoridade">
         <div class="auth-grid">
             <div class="auth-text">
                 <h2>Rigor Técnico e <span>Segurança</span></h2>
@@ -294,7 +325,7 @@
                     <h3>Selo de Autenticação</h3>
                     <p>A Capital Tech oferece <strong>90 dias de garantia incondicional</strong> sobre toda a mão de obra executada.</p>
                     <hr style="border:0; border-top:1px solid #333; margin: 20px 0;">
-                    <p style="color:var(--neon); font-weight:bold; font-size:1.1rem;">Responsável Técnico: Habner</p>
+                    <p style="color:var(--neon); font-weight:bold; font-size:1.1rem;">Capital Tech Engenharia</p>
                 </div>
             </div>
         </div>
@@ -309,14 +340,14 @@
             </div>
             <div class="footer-col">
                 <h4>Atendimento</h4>
-                <p>📍 Atuação em todo o DF e Entorno</p>
+                <p>📍 Atuação no DF e Entorno</p>
                 <p>🕒 Plantão para Emergências</p>
                 <p>💳 Aceitamos Cartões e Pix</p>
             </div>
             <div class="footer-col">
                 <h4>Contatos Seguros</h4>
                 <p>📞 (61) 98629-4465</p>
-                <p>✉️ contato@capitaltech.com.br</p>
+                <p>✉️ contato@capitaltecheng.com.br</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -324,7 +355,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DE INTELIGÊNCIA -->
+    <!-- SCRIPT DE INTELIGÊNCIA AUTOMATIZADA -->
     <script>
         let dadosAgendamento = { problema: "", estimativa: "", regiao: "" };
 
@@ -366,10 +397,19 @@
         }
 
         function acionarWhatsApp() {
-            dadosAgendamento.regiao = document.getElementById('input-regiao').value || "Não informada";
+            // Captura região selecionada no Dropdown
+            const inputRegiao = document.getElementById('input-regiao');
+            dadosAgendamento.regiao = inputRegiao.value || "Não informada";
+            
+            // Inteligência de Horário (Identifica se é Madrugada ou Dia)
+            const horaAtual = new Date().getHours();
+            let saudacaoHorario = "🚨 *SOLICITAÇÃO DE ATENDIMENTO TÉCNICO*";
+            if (horaAtual >= 22 || horaAtual <= 6) {
+                saudacaoHorario = "🚨 *SOLICITAÇÃO DE PLANTÃO MADRUGADA*";
+            }
             
             const numero = "5561986294465"; 
-            const msg = `⚡ *DOSSIÊ CAPITAL TECH* ⚡\n\nOlá Habner! Solicito atendimento técnico.\n\n🔧 *Diagnóstico:* ${dadosAgendamento.problema}\n📍 *Localização:* ${dadosAgendamento.regiao}\n💰 *Estimativa:* ${dadosAgendamento.estimativa}\n\nPodemos confirmar?`;
+            const msg = `${saudacaoHorario} 🚨\n\nOlá, equipe Capital Tech. Solicito avaliação técnica urgente.\n\n🔧 *Diagnóstico Preliminar:* ${dadosAgendamento.problema}\n📍 *Localização (DF):* ${dadosAgendamento.regiao}\n💰 *Estimativa Base:* ${dadosAgendamento.estimativa}\n\nAguardo retorno.`;
             
             if(typeof gtag === 'function') {
                 gtag('event', 'conversion', { 'send_to': 'AW-804006047/t5d7CL6nmqYdEJ_RsP8C', 'value': 1.0, 'currency': 'BRL' });
