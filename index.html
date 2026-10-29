@@ -23,11 +23,12 @@
             --bg-alt: #0a0a0e;
             --neon: #FF5E00;
             --neon-glow: rgba(255, 94, 0, 0.4);
+            --gold: #FFB800;
             --tech-blue: #00E5FF;
-            --panel-bg: rgba(15, 15, 20, 0.6);
+            --panel-bg: rgba(15, 15, 20, 0.75);
             --text-main: #FFFFFF;
             --text-muted: #8A8A93;
-            --border-glass: rgba(255, 255, 255, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.06);
         }
 
         /* TRAVA DE TELA */
@@ -52,12 +53,12 @@
             font-weight: 900; font-size: 1.4rem; letter-spacing: 1px; color: #fff; text-decoration: none; 
         }
         .logo-icon {
-            width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
-            background: rgba(255, 94, 0, 0.1); border: 1px solid var(--neon); border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 94, 0, 0.25); flex-shrink: 0;
+            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+            background: rgba(255, 94, 0, 0.12); border: 1px solid var(--neon); border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 94, 0, 0.3); flex-shrink: 0;
         }
         .logo-text-wrap { display: flex; flex-direction: column; line-height: 1; text-align: left; }
-        .logo-main { font-size: 1.35rem; font-weight: 900; letter-spacing: 1px; }
+        .logo-main { font-size: 1.4rem; font-weight: 900; letter-spacing: 1px; }
         .logo-main span { color: var(--neon); }
         .logo-sub { font-size: 0.65rem; font-weight: 700; color: var(--text-muted); letter-spacing: 2.2px; text-transform: uppercase; margin-top: 3px; }
         
@@ -96,39 +97,40 @@
         .subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto; }
 
         /* PAINEL CIRÚRGICO IA */
-        .cyber-panel { background: var(--panel-bg); border: 1px solid rgba(255, 94, 0, 0.3); border-radius: 16px; padding: 35px; max-width: 650px; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.6); backdrop-filter: blur(15px); position: relative; overflow: hidden; margin: 0 auto; }
+        .cyber-panel { background: var(--panel-bg); border: 1px solid rgba(255, 94, 0, 0.35); border-radius: 16px; padding: 35px; max-width: 650px; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.7); backdrop-filter: blur(15px); position: relative; overflow: hidden; margin: 0 auto; }
         .step { display: none; }
-        .step.active { display: block; animation: fadeUp 0.5s forwards; }
+        .step.active { display: block; animation: fadeUp 0.4s forwards; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
         .panel-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         
         .grid-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .btn-option { background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; text-align: left; display: flex; align-items: center; gap: 10px; }
+        .btn-option { background: rgba(0,0,0,0.65); border: 1px solid rgba(255,255,255,0.12); color: #fff; padding: 15px; border-radius: 8px; font-size: 0.95rem; cursor: pointer; transition: all 0.25s; text-align: left; display: flex; align-items: center; gap: 10px; }
         .btn-option:hover { border-color: var(--neon); background: rgba(255, 94, 0, 0.15); transform: translateY(-2px); }
-        .btn-full { grid-column: 1 / -1; justify-content: center; background: rgba(255, 255, 255, 0.03); font-weight: bold; }
+        .btn-full { grid-column: 1 / -1; justify-content: center; background: rgba(255, 255, 255, 0.04); font-weight: bold; }
 
         .ia-processing { display: none; flex-direction: column; align-items: center; padding: 30px 0; }
         .progress-bar { width: 100%; height: 6px; background: #222; border-radius: 10px; overflow: hidden; margin-top: 20px; }
-        .progress-fill { height: 100%; width: 0%; background: var(--neon); box-shadow: 0 0 10px var(--neon); transition: width 0.1s linear; }
-        .terminal-text { font-family: monospace; color: var(--tech-blue); margin-top: 15px; }
+        .progress-fill { height: 100%; width: 0%; background: var(--neon); box-shadow: 0 0 10px var(--neon); transition: width 0.15s linear; }
+        .terminal-text { font-family: monospace; color: var(--tech-blue); margin-top: 15px; font-size: 0.95rem; }
 
-        .result-box { background: rgba(0,0,0,0.5); border-left: 3px solid var(--neon); padding: 20px; border-radius: 8px; text-align: left; margin-bottom: 25px; }
+        .result-box { background: rgba(0,0,0,0.6); border-left: 4px solid var(--neon); padding: 20px; border-radius: 8px; text-align: left; margin-bottom: 25px; }
         .result-box h2 { color: var(--neon); font-size: 1.5rem; margin-top: 5px; }
         
         /* SELECT INTELIGENTE */
-        select.input-neon { width: 100%; padding: 16px; background: rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 8px; margin-bottom: 20px; outline: none; font-size: 1rem; cursor: pointer; appearance: none; }
-        select.input-neon:focus { border-color: var(--neon); }
+        select.input-neon { width: 100%; padding: 16px; background: rgba(0,0,0,0.85); border: 1px solid rgba(255,94,0,0.4); color: #fff; border-radius: 8px; margin-bottom: 20px; outline: none; font-size: 1rem; cursor: pointer; }
+        select.input-neon:focus { border-color: var(--neon); box-shadow: 0 0 15px rgba(255,94,0,0.2); }
         select.input-neon option { background: #111; color: #fff; }
         
-        .btn-action { width: 100%; background: var(--neon); color: #000; font-weight: 900; font-size: 1.2rem; padding: 18px; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s; box-shadow: 0 0 20px rgba(255, 94, 0, 0.4); }
+        .btn-action { width: 100%; background: var(--neon); color: #000; font-weight: 900; font-size: 1.15rem; padding: 18px; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s; box-shadow: 0 0 20px rgba(255, 94, 0, 0.4); }
         .btn-action:hover { background: #fff; box-shadow: 0 0 30px #fff; transform: translateY(-2px); }
+        .btn-reset { background: transparent; border: none; color: var(--text-muted); font-size: 0.85rem; margin-top: 15px; cursor: pointer; text-decoration: underline; }
 
-        /* SEÇÃO APRESENTAÇÃO EM VÍDEO (NOVO) */
+        /* SEÇÃO APRESENTAÇÃO EM VÍDEO */
         .video-section { border-top: 1px solid var(--border-glass); position: relative; }
         .video-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; max-width: 1100px; width: 100%; align-items: center; }
         .video-wrapper {
-            position: relative; width: 100%; max-width: 360px; margin: 0 auto;
+            position: relative; width: 100%; max-width: 350px; margin: 0 auto;
             border-radius: 20px; padding: 8px;
             background: linear-gradient(145deg, rgba(255,94,0,0.4), rgba(0,229,255,0.1));
             box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 25px rgba(255, 94, 0, 0.2);
@@ -138,9 +140,7 @@
             background: #08080c; border-radius: 14px; overflow: hidden;
             display: flex; align-items: center; justify-content: center;
         }
-        .video-container video, .video-container iframe {
-            width: 100%; height: 100%; object-fit: cover; border: none;
-        }
+        .video-container video { width: 100%; height: 100%; object-fit: cover; border: none; }
         .video-badge {
             position: absolute; top: 15px; left: 15px; z-index: 2;
             background: rgba(3,3,5,0.85); backdrop-filter: blur(8px);
@@ -176,28 +176,61 @@
         .client-name { color: #fff; font-weight: 700; font-size: 0.95rem; }
         .client-role { color: var(--neon); font-weight: 400; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* SEÇÃO AUTORIDADE E AUTENTICAÇÃO */
-        .auth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; width: 100%; align-items: center; }
-        .auth-text h2 { font-size: 2.2rem; margin-bottom: 20px; font-weight: 900; }
-        .auth-text p { color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; font-size: 1.05rem; }
+        /* SEÇÃO AUTORIDADE E SELO ESPETACULAR DE GARANTIA */
+        .auth-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; max-width: 1100px; width: 100%; align-items: center; }
+        .auth-text h2 { font-size: 2.2rem; margin-bottom: 20px; font-weight: 900; text-transform: uppercase; }
+        .auth-text p { color: var(--text-muted); line-height: 1.7; margin-bottom: 25px; font-size: 1.05rem; }
         .auth-badges { display: flex; flex-direction: column; gap: 15px; }
-        .badge-item { display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.03); padding: 15px 20px; border-radius: 8px; border: 1px solid var(--border-glass); }
-        .badge-item i { font-size: 1.5rem; color: #00FF66; }
-        .badge-item h4 { font-size: 1.1rem; color: #fff; margin-bottom: 3px; }
-        .badge-item p { font-size: 0.85rem; color: #888; margin: 0; }
+        .badge-item { display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.03); padding: 16px 20px; border-radius: 10px; border: 1px solid var(--border-glass); }
+        .badge-item i { font-size: 1.6rem; }
+        .badge-item h4 { font-size: 1.1rem; color: #fff; margin-bottom: 4px; }
+        .badge-item p { font-size: 0.88rem; color: #999; margin: 0; line-height: 1.4; }
         
-        .auth-image { position: relative; }
-        .cert-box { background: linear-gradient(135deg, rgba(20,20,25,0.9), rgba(10,10,12,0.9)); border: 1px solid var(--neon); padding: 40px; border-radius: 16px; text-align: center; box-shadow: 0 0 30px rgba(255,94,0,0.1); }
-        .cert-box h3 { color: var(--neon); font-size: 1.5rem; margin-bottom: 10px; }
-        .cert-box p { color: #ccc; font-size: 0.9rem; }
-        .shield-icon { font-size: 4rem; margin-bottom: 20px; }
+        /* SELO BLINDADO SUPREMO */
+        .cert-box { 
+            background: radial-gradient(circle at top, rgba(255, 94, 0, 0.15), rgba(10, 10, 14, 0.98) 70%);
+            border: 2px solid var(--neon); 
+            outline: 1px solid rgba(255, 184, 0, 0.3);
+            outline-offset: -8px;
+            padding: 45px 35px; 
+            border-radius: 20px; 
+            text-align: center; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 35px rgba(255, 94, 0, 0.2); 
+            position: relative;
+        }
+        .cert-ribbon {
+            display: inline-block; background: linear-gradient(90deg, var(--neon), var(--gold));
+            color: #000; font-weight: 900; font-size: 0.75rem; padding: 5px 16px; border-radius: 50px;
+            letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px;
+        }
+        .shield-svg {
+            width: 80px; height: 80px; margin: 0 auto 15px auto;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255, 184, 0, 0.08); border: 1px solid rgba(255, 184, 0, 0.4);
+            border-radius: 50%; box-shadow: 0 0 25px rgba(255, 184, 0, 0.2);
+        }
+        .cert-box h3 { color: #fff; font-size: 1.6rem; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .cert-days { color: var(--gold); font-size: 1.15rem; font-weight: 900; letter-spacing: 1px; margin-bottom: 15px; display: block; }
+        .cert-box p { color: #ccc; font-size: 0.95rem; line-height: 1.6; }
+        .cert-meta {
+            margin-top: 25px; padding-top: 18px; border-top: 1px dashed rgba(255,255,255,0.15);
+            display: flex; justify-content: space-between; font-family: monospace; font-size: 0.78rem; color: #888;
+        }
 
-        /* FOOTER */
-        footer { background: #010102; padding: 50px 5%; border-top: 1px solid #111; text-align: center; width: 100%; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; text-align: left; }
-        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.2rem; }
-        .footer-col p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; line-height: 1.5; }
-        .footer-bottom { margin-top: 50px; padding-top: 20px; border-top: 1px solid #222; color: #555; font-size: 0.8rem; }
+        /* FOOTER PROFISSIONAL COMPLETO */
+        footer { background: #010102; padding: 65px 5% 30px 5%; border-top: 1px solid #15151c; text-align: center; width: 100%; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 35px; max-width: 1100px; margin: 0 auto; text-align: left; }
+        .footer-col h4 { color: #fff; margin-bottom: 18px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; border-left: 3px solid var(--neon); padding-left: 10px; }
+        .footer-col p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; line-height: 1.6; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .tech-tag { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; color: #bbb; font-family: monospace; }
+        
+        .footer-bottom { 
+            max-width: 1100px; margin: 45px auto 0 auto; padding-top: 25px; 
+            border-top: 1px solid #15151c; color: #666; font-size: 0.82rem; 
+            display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 15px;
+        }
+        .ssl-badge { display: inline-flex; align-items: center; gap: 6px; color: #00FF66; font-family: monospace; font-size: 0.78rem; background: rgba(0,255,102,0.06); padding: 5px 12px; border-radius: 4px; border: 1px solid rgba(0,255,102,0.2); }
 
         /* TRAVA ABSOLUTA PARA CELULAR */
         @media (max-width: 768px) {
@@ -210,6 +243,7 @@
             .auth-grid { grid-template-columns: 1fr; }
             .grid-options { grid-template-columns: 1fr; }
             .cyber-panel { padding: 25px 15px; }
+            .footer-bottom { flex-direction: column; text-align: center; justify-content: center; }
         }
     </style>
 </head>
@@ -218,10 +252,9 @@
     <div class="animated-bg"></div>
     
     <header>
-        <!-- LOGÓTIPO VETORIAL INTEGRADO -->
         <a href="#inicio" class="logo-tech">
             <div class="logo-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="#FF5E00" stroke="#FFB800" stroke-width="1.5" stroke-linejoin="round"/>
                 </svg>
             </div>
@@ -248,50 +281,54 @@
         <p class="subtitle">Diagnóstico técnico em tempo real. Identifique o problema abaixo e acione a central de engenharia.</p>
 
         <div class="cyber-panel">
+            <!-- PASSO 1: ESCOLHA DO PROBLEMA -->
             <div class="step active" id="step-1">
-                <div class="panel-title"><i>⚡</i> Painel de Triagem Técnica</div>
+                <div class="panel-title"><span>⚡</span> Painel de Triagem Técnica</div>
                 <div class="grid-options">
-                    <button class="btn-option" onclick="iniciarAnalise('Chuveiro não esquenta / Resistência', 'A partir de R$ 80')">🚿 Chuveiro / Resistência</button>
-                    <button class="btn-option" style="border-color: rgba(255,0,0,0.4);" onclick="iniciarAnalise('Curto-circuito / Cheiro de Queimado', 'Urgência - Requer Visita Imediata')">🔥 Curto / Queimado</button>
-                    <button class="btn-option" onclick="iniciarAnalise('Disjuntor Desarmando', 'A partir de R$ 150')">⚡ Disjuntor Desarmando</button>
-                    <button class="btn-option" style="border-color: rgba(255,0,0,0.4);" onclick="iniciarAnalise('Apagão Parcial (Fases caindo)', 'Urgência - Avaliação Técnica')">🌑 Apagão Parcial</button>
-                    <button class="btn-option" onclick="iniciarAnalise('Instalação Ar/Forno/Equipamentos', 'A partir de R$ 150')">❄️ Ar / Forno / Cooktop</button>
-                    <button class="btn-option" onclick="iniciarAnalise('Instalação Tomadas e Iluminação', 'A partir de R$ 70 por ponto')">💡 Tomadas / Iluminação</button>
-                    <button class="btn-option btn-full" onclick="iniciarAnalise('Falha não identificada', 'Análise de Rede Necessária')">❓ Outro problema / Não sei explicar</button>
+                    <button type="button" class="btn-option" onclick="iniciarAnalise('Chuveiro não esquenta / Resistência', 'A partir de R$ 80')">🚿 Chuveiro / Resistência</button>
+                    <button type="button" class="btn-option" style="border-color: rgba(255,0,0,0.45);" onclick="iniciarAnalise('Curto-circuito / Cheiro de Queimado', 'Urgência - Requer Visita Imediata')">🔥 Curto / Queimado</button>
+                    <button type="button" class="btn-option" onclick="iniciarAnalise('Disjuntor Desarmando', 'A partir de R$ 150')">⚡ Disjuntor Desarmando</button>
+                    <button type="button" class="btn-option" style="border-color: rgba(255,0,0,0.45);" onclick="iniciarAnalise('Apagão Parcial (Fases caindo)', 'Urgência - Avaliação Técnica')">🌑 Apagão Parcial</button>
+                    <button type="button" class="btn-option" onclick="iniciarAnalise('Instalação Ar/Forno/Equipamentos', 'A partir de R$ 150')">❄️ Ar / Forno / Cooktop</button>
+                    <button type="button" class="btn-option" onclick="iniciarAnalise('Instalação Tomadas e Iluminação', 'A partir de R$ 70 por ponto')">💡 Tomadas / Iluminação</button>
+                    <button type="button" class="btn-option btn-full" onclick="iniciarAnalise('Falha não identificada', 'Análise de Rede Necessária')">❓ Outro problema / Não sei explicar</button>
                 </div>
             </div>
 
+            <!-- PASSO 2: PROCESSAMENTO -->
             <div class="ia-processing" id="step-processing">
-                <div class="panel-title"><i>⚙️</i> Processando Parâmetros...</div>
+                <div class="panel-title"><span>⚙️</span> Processando Parâmetros...</div>
                 <div class="progress-bar"><div class="progress-fill" id="p-fill"></div></div>
                 <div class="terminal-text" id="terminal-text">Iniciando análise...</div>
             </div>
 
+            <!-- PASSO 3: RESULTADO E DISPARO WHATSAPP -->
             <div class="step" id="step-3">
-                <div class="panel-title"><i>✅</i> Relatório Preliminar</div>
+                <div class="panel-title"><span>✅</span> Relatório Preliminar</div>
                 <div class="result-box">
                     <span style="color:#aaa; font-size:0.9rem;">Ocorrência Detectada:</span>
                     <h3 id="res-problema" style="color:#fff; margin:5px 0 15px 0;">-</h3>
                     <span style="color:#aaa; font-size:0.9rem;">Estimativa Base (Mão de Obra):</span>
                     <h2 id="res-valor">-</h2>
                 </div>
-                <!-- Menu Dropdown Inteligente de Fricção Zero -->
+                
                 <select id="input-regiao" class="input-neon">
-                    <option value="" disabled selected>Selecione sua Região no DF...</option>
-                    <option value="Ceilândia">Ceilândia</option>
-                    <option value="Taguatinga">Taguatinga</option>
-                    <option value="Águas Claras">Águas Claras</option>
-                    <option value="Vicente Pires">Vicente Pires</option>
-                    <option value="Samambaia">Samambaia</option>
-                    <option value="Guará">Guará</option>
-                    <option value="Outra Região">Outra Região do DF</option>
+                    <option value="Ceilândia">📍 Ceilândia</option>
+                    <option value="Taguatinga">📍 Taguatinga</option>
+                    <option value="Águas Claras">📍 Águas Claras</option>
+                    <option value="Vicente Pires">📍 Vicente Pires</option>
+                    <option value="Samambaia">📍 Samambaia</option>
+                    <option value="Guará">📍 Guará</option>
+                    <option value="Outra Região do DF">📍 Outra Região do DF</option>
                 </select>
-                <button class="btn-action" onclick="acionarWhatsApp()">Acionar Capital Tech</button>
+                
+                <button type="button" class="btn-action" onclick="acionarWhatsApp()">📲 Acionar Capital Tech no WhatsApp</button>
+                <button type="button" class="btn-reset" onclick="reiniciarTriagem()">← Voltar e refazer diagnóstico</button>
             </div>
         </div>
     </section>
 
-    <!-- NOVA SEÇÃO: APRESENTAÇÃO EM VÍDEO DO ESPECIALISTA -->
+    <!-- SEÇÃO APRESENTAÇÃO EM VÍDEO DO ESPECIALISTA -->
     <section class="video-section" id="apresentacao">
         <div class="video-grid">
             <div class="video-wrapper">
@@ -299,10 +336,6 @@
                     <div class="dot"></div> ENGENHARIA EM CAMPO
                 </div>
                 <div class="video-container">
-                    <!-- 
-                        PARA USAR ARQUIVO MP4 DIRETO NO GITHUB:
-                        Basta subir o vídeo na mesma pasta do index.html com o nome "apresentacao.mp4" 
-                    -->
                     <video controls preload="metadata" poster="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80">
                         <source src="apresentacao.mp4" type="video/mp4">
                         Seu navegador não suporta a reprodução de vídeo.
@@ -330,7 +363,7 @@
                 </div>
 
                 <a href="#inicio" style="text-decoration: none;">
-                    <button class="btn-action" style="max-width: 340px;">Iniciar Diagnóstico Agora</button>
+                    <button type="button" class="btn-action" style="max-width: 340px;">Iniciar Diagnóstico Agora</button>
                 </a>
             </div>
         </div>
@@ -391,31 +424,12 @@
         </div>
     </section>
 
-    <!-- AUTORIDADE E AUTENTICAÇÃO -->
+    <!-- AUTORIDADE E SELO DE GARANTIA ESPETACULAR -->
     <section class="bg-alt" id="autoridade">
         <div class="auth-grid">
             <div class="auth-text">
                 <h2>Rigor Técnico e <span>Segurança</span></h2>
-                <p>Eletricidade não aceita amadorismo. A Capital Tech atua sob os mais rigorosos padrões de segurança, garantindo que a infraestrutura da sua família ou do seu negócio opere sem riscos de incêndio ou curtos-circuitos.</p>
+                <p>Eletricidade não aceita amadorismo. A Capital Tech atua sob os mais rigorosos padrões de engenharia, garantindo que a infraestrutura da sua família ou do seu negócio opere sem riscos de incêndio ou curtos-circuitos.</p>
                 
                 <div class="auth-badges">
-                    <div class="badge-item">
-                        <i>📋</i>
-                        <div>
-                            <h4>Padrão de Qualidade SENAI</h4>
-                            <p>Formação técnica chancelada pela maior instituição de tecnologia do país.</p>
-                        </div>
-                    </div>
-                    <div class="badge-item">
-                        <i>🔧</i>
-                        <div>
-                            <h4>Instrumentação de Alta Precisão</h4>
-                            <p>Diagnóstico feito com multímetros calibrados e ferramentas isoladas 1000V.</p>
-                        </div>
-                    </div>
-                    <div class="badge-item">
-                        <i>🛡️</i>
-                        <div>
-                            <h4>Conformidade NR-10</h4>
-                            <p>Todos os serviços executados respeitando as normas regulamentadoras de segurança.</p>
-                        </div>
+                    <div class="badge-item
