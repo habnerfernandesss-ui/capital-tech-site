@@ -41,14 +41,25 @@
             position: relative;
         }
 
-        /* HEADER E MENU */
+        /* HEADER E LOGO VETORIAL */
         header {
             position: fixed; top: 0; left: 0; width: 100%; background: rgba(3,3,5,0.95); backdrop-filter: blur(15px);
-            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 5%; display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; border-bottom: 1px solid var(--border-glass);
         }
-        .logo-tech { font-weight: 900; font-size: 1.5rem; letter-spacing: 1px; color: #fff; text-decoration: none; }
-        .logo-tech span { color: var(--neon); }
+        .logo-tech { 
+            display: flex; align-items: center; gap: 12px; 
+            font-weight: 900; font-size: 1.4rem; letter-spacing: 1px; color: #fff; text-decoration: none; 
+        }
+        .logo-icon {
+            width: 38px; height: 38px; display: flex; align-items: center; justify-content: center;
+            background: rgba(255, 94, 0, 0.1); border: 1px solid var(--neon); border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 94, 0, 0.25); flex-shrink: 0;
+        }
+        .logo-text-wrap { display: flex; flex-direction: column; line-height: 1; text-align: left; }
+        .logo-main { font-size: 1.35rem; font-weight: 900; letter-spacing: 1px; }
+        .logo-main span { color: var(--neon); }
+        .logo-sub { font-size: 0.65rem; font-weight: 700; color: var(--text-muted); letter-spacing: 2.2px; text-transform: uppercase; margin-top: 3px; }
         
         .nav-links { display: flex; gap: 25px; align-items: center; }
         .nav-links a { color: var(--text-main); text-decoration: none; font-weight: 400; font-size: 0.95rem; transition: 0.3s; }
@@ -113,6 +124,40 @@
         .btn-action { width: 100%; background: var(--neon); color: #000; font-weight: 900; font-size: 1.2rem; padding: 18px; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s; box-shadow: 0 0 20px rgba(255, 94, 0, 0.4); }
         .btn-action:hover { background: #fff; box-shadow: 0 0 30px #fff; transform: translateY(-2px); }
 
+        /* SEÇÃO APRESENTAÇÃO EM VÍDEO (NOVO) */
+        .video-section { border-top: 1px solid var(--border-glass); position: relative; }
+        .video-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; max-width: 1100px; width: 100%; align-items: center; }
+        .video-wrapper {
+            position: relative; width: 100%; max-width: 360px; margin: 0 auto;
+            border-radius: 20px; padding: 8px;
+            background: linear-gradient(145deg, rgba(255,94,0,0.4), rgba(0,229,255,0.1));
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 25px rgba(255, 94, 0, 0.2);
+        }
+        .video-container {
+            position: relative; width: 100%; aspect-ratio: 9 / 16;
+            background: #08080c; border-radius: 14px; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .video-container video, .video-container iframe {
+            width: 100%; height: 100%; object-fit: cover; border: none;
+        }
+        .video-badge {
+            position: absolute; top: 15px; left: 15px; z-index: 2;
+            background: rgba(3,3,5,0.85); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,94,0,0.4); padding: 6px 12px; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 6px;
+        }
+        .video-info h2 { font-size: 2.3rem; font-weight: 900; margin-bottom: 20px; line-height: 1.15; text-transform: uppercase; }
+        .video-info h2 span { color: var(--neon); }
+        .video-info p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 25px; }
+        .tech-checklist { display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; }
+        .check-item { display: flex; align-items: center; gap: 12px; font-size: 0.98rem; color: #eaeaea; }
+        .check-icon {
+            width: 26px; height: 26px; border-radius: 6px; background: rgba(0, 255, 102, 0.12);
+            border: 1px solid rgba(0, 255, 102, 0.4); color: #00FF66;
+            display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0;
+        }
+
         /* SEÇÃO SERVIÇOS */
         .bg-alt { background: var(--bg-alt); border-top: 1px solid var(--border-glass); border-bottom: 1px solid var(--border-glass); }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; width: 100%; }
@@ -156,11 +201,12 @@
 
         /* TRAVA ABSOLUTA PARA CELULAR */
         @media (max-width: 768px) {
-            header { flex-direction: column !important; justify-content: center !important; align-items: center !important; padding: 15px 0 !important; width: 100% !important; } 
-            .logo-tech { display: block !important; text-align: center !important; width: 100% !important; margin: 0 0 10px 0 !important; font-size: 1.7rem !important; }
+            header { flex-direction: column !important; justify-content: center !important; align-items: center !important; padding: 12px 0 !important; width: 100% !important; } 
+            .logo-tech { justify-content: center !important; width: 100% !important; margin: 0 0 10px 0 !important; }
             .nav-links { display: flex !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; width: 100% !important; gap: 15px !important; margin: 0 !important; }
-            .hero { padding-top: 160px; } 
+            .hero { padding-top: 165px; } 
             .hero h1 { font-size: 2.3rem; }
+            .video-grid { grid-template-columns: 1fr; gap: 35px; }
             .auth-grid { grid-template-columns: 1fr; }
             .grid-options { grid-template-columns: 1fr; }
             .cyber-panel { padding: 25px 15px; }
@@ -172,9 +218,21 @@
     <div class="animated-bg"></div>
     
     <header>
-        <a href="#inicio" class="logo-tech">CAPITAL<span>TECH</span></a>
+        <!-- LOGÓTIPO VETORIAL INTEGRADO -->
+        <a href="#inicio" class="logo-tech">
+            <div class="logo-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="#FF5E00" stroke="#FFB800" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="logo-text-wrap">
+                <div class="logo-main">CAPITAL<span>TECH</span></div>
+                <div class="logo-sub">Engenharia Elétrica</div>
+            </div>
+        </a>
         <nav class="nav-links">
             <a href="#inicio">Início</a>
+            <a href="#apresentacao">O Especialista</a>
             <a href="#servicos">Especialidades</a>
             <a href="#depoimentos">Avaliações</a>
             <a href="#autoridade">Garantia</a>
@@ -229,6 +287,51 @@
                     <option value="Outra Região">Outra Região do DF</option>
                 </select>
                 <button class="btn-action" onclick="acionarWhatsApp()">Acionar Capital Tech</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: APRESENTAÇÃO EM VÍDEO DO ESPECIALISTA -->
+    <section class="video-section" id="apresentacao">
+        <div class="video-grid">
+            <div class="video-wrapper">
+                <div class="video-badge">
+                    <div class="dot"></div> ENGENHARIA EM CAMPO
+                </div>
+                <div class="video-container">
+                    <!-- 
+                        PARA USAR ARQUIVO MP4 DIRETO NO GITHUB:
+                        Basta subir o vídeo na mesma pasta do index.html com o nome "apresentacao.mp4" 
+                    -->
+                    <video controls preload="metadata" poster="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80">
+                        <source src="apresentacao.mp4" type="video/mp4">
+                        Seu navegador não suporta a reprodução de vídeo.
+                    </video>
+                </div>
+            </div>
+
+            <div class="video-info">
+                <h2>Quem vai entrar na <span>sua residência?</span></h2>
+                <p>Ao acionar a Capital Tech, você não recebe um curioso fazendo testes por tentativa e erro. Você recebe um especialista uniformizado, equipado com instrumentação de precisão para localizar a falha exata sem danificar o seu imóvel.</p>
+                
+                <div class="tech-checklist">
+                    <div class="check-item">
+                        <div class="check-icon">✔</div>
+                        <span><strong>Diagnóstico por Instrumentos:</strong> Uso de multímetros digitais e alicates amperímetros para medir sobrecargas reais.</span>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon">✔</div>
+                        <span><strong>Zero Gambiarra:</strong> Uso de conectores de torção/Wago, terminais tubulares e respeito absoluto às normas técnicas.</span>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon">✔</div>
+                        <span><strong>Orçamento Transparente:</strong> Você sabe exatamente o valor da intervenção antes de qualquer ferramenta tocar na sua parede.</span>
+                    </div>
+                </div>
+
+                <a href="#inicio" style="text-decoration: none;">
+                    <button class="btn-action" style="max-width: 340px;">Iniciar Diagnóstico Agora</button>
+                </a>
             </div>
         </div>
     </section>
@@ -316,108 +419,3 @@
                             <h4>Conformidade NR-10</h4>
                             <p>Todos os serviços executados respeitando as normas regulamentadoras de segurança.</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="auth-image">
-                <div class="cert-box">
-                    <div class="shield-icon">🛡️</div>
-                    <h3>Selo de Autenticação</h3>
-                    <p>A Capital Tech oferece <strong>90 dias de garantia incondicional</strong> sobre toda a mão de obra executada.</p>
-                    <hr style="border:0; border-top:1px solid #333; margin: 20px 0;">
-                    <p style="color:var(--neon); font-weight:bold; font-size:1.1rem;">Capital Tech Engenharia</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER INSTITUCIONAL -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4 style="font-weight:900; font-size:1.5rem;">CAPITAL<span style="color:var(--neon);">TECH</span></h4>
-                <p>Inteligência, precisão e segurança em instalações elétricas para todo o Distrito Federal.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Atendimento</h4>
-                <p>📍 Atuação no DF e Entorno</p>
-                <p>🕒 Plantão para Emergências</p>
-                <p>💳 Aceitamos Cartões e Pix</p>
-            </div>
-            <div class="footer-col">
-                <h4>Contatos Seguros</h4>
-                <p>📞 (61) 98629-4465</p>
-                <p>✉️ contato@capitaltecheng.com.br</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 Capital Tech Engenharia Elétrica. Todos os direitos reservados. 
-        </div>
-    </footer>
-
-    <!-- SCRIPT DE INTELIGÊNCIA AUTOMATIZADA -->
-    <script>
-        let dadosAgendamento = { problema: "", estimativa: "", regiao: "" };
-
-        function iniciarAnalise(problema, estimativa) {
-            dadosAgendamento.problema = problema;
-            dadosAgendamento.estimativa = estimativa;
-            
-            document.getElementById('step-1').classList.remove('active');
-            const processing = document.getElementById('step-processing');
-            processing.style.display = 'flex';
-
-            const fill = document.getElementById('p-fill');
-            const terminal = document.getElementById('terminal-text');
-            
-            let progress = 0;
-            const messages = [
-                "Verificando histórico de falhas da região...",
-                "Calculando dimensionamento de carga...",
-                "Estruturando dossiê técnico..."
-            ];
-
-            const interval = setInterval(() => {
-                progress += 20;
-                fill.style.width = progress + '%';
-                
-                if (progress === 40) terminal.innerText = messages[1];
-                if (progress === 80) terminal.innerText = messages[2];
-
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        processing.style.display = 'none';
-                        document.getElementById('res-problema').innerText = dadosAgendamento.problema;
-                        document.getElementById('res-valor').innerText = dadosAgendamento.estimativa;
-                        document.getElementById('step-3').classList.add('active');
-                    }, 400);
-                }
-            }, 300);
-        }
-
-        function acionarWhatsApp() {
-            // Captura região selecionada no Dropdown
-            const inputRegiao = document.getElementById('input-regiao');
-            dadosAgendamento.regiao = inputRegiao.value || "Não informada";
-            
-            // Inteligência de Horário (Identifica se é Madrugada ou Dia)
-            const horaAtual = new Date().getHours();
-            let saudacaoHorario = "🚨 *SOLICITAÇÃO DE ATENDIMENTO TÉCNICO*";
-            if (horaAtual >= 22 || horaAtual <= 6) {
-                saudacaoHorario = "🚨 *SOLICITAÇÃO DE PLANTÃO MADRUGADA*";
-            }
-            
-            const numero = "5561986294465"; 
-            const msg = `${saudacaoHorario} 🚨\n\nOlá, equipe Capital Tech. Solicito avaliação técnica urgente.\n\n🔧 *Diagnóstico Preliminar:* ${dadosAgendamento.problema}\n📍 *Localização (DF):* ${dadosAgendamento.regiao}\n💰 *Estimativa Base:* ${dadosAgendamento.estimativa}\n\nAguardo retorno.`;
-            
-            if(typeof gtag === 'function') {
-                gtag('event', 'conversion', { 'send_to': 'AW-804006047/t5d7CL6nmqYdEJ_RsP8C', 'value': 1.0, 'currency': 'BRL' });
-            }
-            
-            window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-    </script>
-
-</body>
-</html>
